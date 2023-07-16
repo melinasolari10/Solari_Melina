@@ -1,5 +1,5 @@
-CREATE DATABASE empresa_1;
-USE empresa_1;
+CREATE DATABASE empresa_18;
+USE empresa_18;
 
 CREATE TABLE departamentos (
 departamento_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -100,7 +100,8 @@ SELECT nombre FROM departamentos WHERE presupuesto BETWEEN 100000 AND 200000;
 SELECT empleados.nombre, empleados.apellido, departamentos.nombre FROM empleados inner join departamentos on empleados.departamento = departamentos.departamento_id;
 
 -- t) 
---pasaron cosas...
+SELECT CONCAT(empleados.apellido, ' ', empleados.nombre) as 'Apellido y Nombre', departamentos.nombre as 'Departamento donde trabaja' 
+FROM empleados inner join departamentos on empleados.empleado_id = departamentos.departamento_id ORDER BY departamentos.nombre asc, empleados.apellido;
 
 -- u) 
 SELECT departamentos.departamento_id, departamentos.nombre FROM departamentos inner join empleados ON departamentos.departamento_id = empleados.departamento GROUP BY departamentos.departamento_id, departamentos.nombre ORDER BY departamentos.departamento_id;
